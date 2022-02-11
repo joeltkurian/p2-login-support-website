@@ -1,5 +1,6 @@
+
 export interface Employee {
-    id: number,
+    id?: number,
     isManager: boolean,
     fname: string,
     lname: string,

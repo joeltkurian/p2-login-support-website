@@ -1,0 +1,324 @@
+.totalEmp{
+    position: fixed;
+    /* background-color: #3f0d12; */
+    /* background-image: linear-gradient(315deg, #2f0000 10%, #ff004c 60%); */
+    background-color: #cccccc;
+    background-image: url("https://wallpaperaccess.com/full/365393.jpg");
+    background-repeat: repeat;
+    background-size:cover;
+    height:100%;
+    width:100%;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.empHeaderLabel { 
+  color: rgba(255,255,255,0.8);
+    left:50%;
+    text-align: center;
+    background-color: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    font-size: 40px;
+    border-radius: 10px;
+    padding: 4px 2px;
+    backdrop-filter: blur(10px);
+    grid-area: usernameLabel;
+}
+
+.containerEmp {  
+    color: #fff;
+    position: relative;
+    width:fit-content;
+    top: 50%;
+    left: 50%;
+    overflow:hidden;
+    transform: translate(-50% , -50%);
+    background-color: rgba(255,255,255,0.03);
+    box-shadow: 5px 5px 10px rgba(0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 20px 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      " pastBtn newBtn"
+      " containerEmpShow containerEmpShow";
+}
+
+.pastBtn {
+    margin: auto;
+    padding: auto;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.06);
+    box-shadow: 0 5px 5px rgba(0,0,0.2);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.6);
+    font-size: 30px;
+    letter-spacing: 0px;
+    transition: 0.5s;
+    cursor: pointer;
+    text-transform: uppercase;
+    overflow:hidden;
+    width: auto;
+    height: auto;
+    grid-area: pastBtn;
+}
+.pastBtn:hover {
+  letter-spacing: 1px;
+    background-color: rgba(120, 120, 120, 0.3);
+    color: rgba(255,255,255,1);
+  }
+ .pastBtn:active{
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+.newBtn {
+    margin: auto;
+    padding: auto;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.06);
+    box-shadow: 0 5px 5px rgba(0,0,0.2);
+    backdrop-filter: blur(30px);
+    overflow:hidden;
+    color: rgba(255,255,255,0.6);
+    font-size: 30px;
+    letter-spacing: 0px;
+    transition: 0.5s;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: auto;
+    height: auto;
+    grid-area: newBtn;
+}
+.newBtn:hover {
+  letter-spacing: 1px;
+    background-color: rgba(120, 120, 120, 0.3);
+    color: rgba(255,255,255,1);
+}
+.newBtn:active{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.containerEmpShow{
+  margin: auto;
+  overflow-y:scroll;
+     max-height:700px;
+  grid-area:containerEmpShow;
+}
+table{
+  box-shadow: 0 5px 5px rgba(0,0,0.2);
+}
+table, tr{
+  color:rgba(255,255,255,0.6);
+  background-color: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  width: auto;
+  font-size: 30px;
+  word-wrap:break-word;
+  text-align: center;
+  border-radius: 10px;
+  padding: 2px;
+  backdrop-filter: blur(10px);
+}
+td{
+  padding:10px;
+  max-width: 800px;
+}
+th{
+  font-size: 30px;
+  padding:10px;
+  color: rgba(255,255,255,0.8);
+}
+.THH{
+  text-align: center;
+  font-size:35px;
+  background-color: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  margin:5px;
+}
+.THHManager{
+  text-align: center;
+  font-size:35px;
+  background-color: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  margin:5px;
+  margin-top: 35px;
+}
+
+.newRemContainer{
+  color: #fff;
+  position:relative;
+  background-color: rgba(255,255,255,0.03);
+  box-shadow: 0 5px 5px rgba(0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+  width: auto;
+  border-radius: 20px;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto auto auto;
+  gap: 15px 15px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    " fname fname"
+    " lname lname"
+    " username username"
+    " password password"
+    " manager manager"
+    " managerCheck submitAccount";
+}
+
+.fname{
+  grid-area: fname;
+    color:rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.03);
+    box-shadow: 0 2px 2px rgba(0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    width: auto;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 10px;
+    padding: auto;
+    backdrop-filter: blur(10px);
+}
+.lname{
+  grid-area: lname;
+  color:rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.03);
+    box-shadow: 0 2px 2px rgba(0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    width: auto;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 10px;
+    padding: auto;
+    backdrop-filter: blur(10px);
+}
+.username{
+  grid-area: username;
+  color:rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.03);
+    box-shadow: 0 2px 2px rgba(0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    width: auto;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 10px;
+    padding: auto;
+    backdrop-filter: blur(10px);
+}
+.password{
+  grid-area: password;
+  color:rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.03);
+    box-shadow: 0 2px 2px rgba(0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    width: auto;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 10px;
+    padding: auto;
+    backdrop-filter: blur(10px);
+}
+.submitAccount{
+  grid-area: submitAccount;
+  color:rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.03);
+    box-shadow: 0 5px 5px rgba(0,0,0.2);
+    width: auto;
+    margin: auto;
+    font-size: 25px;
+    letter-spacing: 1px;
+    transition: 0.5s;
+    text-align: center;
+    border-radius: 10px;
+    padding: 6px;
+    backdrop-filter: blur(10px);
+}
+.managerCheck{
+  grid-area: managerCheck;
+  color:rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.03);
+    box-shadow: 0 5px 5px rgba(150,0,0.2);
+    width: auto;
+    margin: auto;
+    font-size: 25px;
+    letter-spacing: 1px;
+    transition: 0.5s;
+    text-align: center;
+    border-radius: 10px;
+    padding: 6px;
+    backdrop-filter: blur(10px);
+}
+.employeeCheck{
+  grid-area: managerCheck;
+  color:rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.03);
+    box-shadow: 0 5px 5px rgba(0,150,0.2);
+    width: auto;
+    margin: auto;
+    font-size: 25px;
+    letter-spacing: 1px;
+    transition: 0.5s;
+    text-align: center;
+    border-radius: 10px;
+    padding: 6px;
+    backdrop-filter: blur(10px);
+}
+.submitAccount:hover {
+  letter-spacing: 5px;
+  background-color: rgba(120, 120, 120, 0.3);
+  color: rgba(255,255,255,1);
+}
+.submitAccount:active{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.Btn {
+  margin: auto;
+  position: absolute;
+  padding: auto;
+  border-radius: 15px;
+  right:15px;
+  background: rgba(255,255,255,.1);
+  box-shadow: 0 5px 5px rgba(0,0,0.2);
+  backdrop-filter: blur(30px);
+  color: rgba(255,255,255,1);
+  font-size: 30px;
+  overflow:hidden;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition:0.5s;
+  text-transform: uppercase;
+}
+.Btn:after{
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+transition: 0.6s;
+transition-delay: 0s;
+}
+.Btn:hover:before{
+  transform:skewX(45deg)translateX(150%);
+}
+.Btn:hover{
+  letter-spacing: 4px;
+}
+.Btn:hover:after{
+left: 100%;
+}

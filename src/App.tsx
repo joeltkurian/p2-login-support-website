@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Configuration, PublicClientApplication } from "@azure/msal-browser";
+import { AuthenticatedTemplate, MsalProvider, UnauthenticatedTemplate } from "@azure/msal-react";
+import LoginPage from "./login/login";
+import HomePage from "./homepage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const config: Configuration = {
+  auth: {
+    clientId: "82e6d228-1dda-4fe8-afe2-fa9eddecc5ca",
+    authority: "https://login.microsoftonline.com/a751704a-5b8b-4f54-8fb2-2a5c7fc1e759",
+    redirectUri: "http://localhost:3000"
+  },
+  cache: {
+    cacheLocation: 'sessionStorage'
+  }
 }
 
-export default App;
+const client = new PublicClientApplication(config);
+
+// Provider is just a context hook provider for client object
+export default function App() {
+  return (<>
+    <MsalProvider instance={client}>
+      <UnauthenticatedTemplate>
+        <LoginPage />
+      </UnauthenticatedTemplate>
+      <AuthenticatedTemplate>
+        <HomePage />
+      </AuthenticatedTemplate>
+    </MsalProvider>
+  </>);
+}
