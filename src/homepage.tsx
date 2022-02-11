@@ -5,84 +5,6 @@ import { Employee } from "../dtos";
 import './homepage.css';
 import { override } from "./login/login";
 
-// export default function HomePage() {
-
-//     const client = useMsal();
-//     const account = client.accounts[0];
-//     const manager = useRef(null);
-//     const fname = useRef(null);
-//     const lname = useRef(null);
-//     const username = useRef(null);
-//     const password = useRef(null);
-//     const [employees, setEmployees] = useState(null);
-
-//     async function getEmployees() {
-//         const response = await fetch(`http://20.121.74.219:3000/employees`);
-//         let employeeArr: Employee[] = await response.json();
-//         if (response.status === 200) {
-//             setEmployees(employeeArr);
-//         }
-//         else {
-//             alert('no employees');
-//         }
-//     }
-
-//     async function createEmployees() {
-
-//         const employeePayload: Employee = {
-//             isManager: manager.current.checked,
-//             fname: fname.current.value,
-//             lname: lname.current.value,
-//             username: username.current.value,
-//             password: password.current.value
-//         }
-//         console.log(`Created Employee: ` + employeePayload);
-
-//         const response = await fetch('http://20.121.74.219:3000/employees', {
-//             method: 'POST',
-//             body: JSON.stringify(employeePayload),
-//             headers: {
-//                 'Content-Type': "application/json"
-//             }
-//         });
-//         const createdEmp: Employee = await response.json();
-//         if (response.status === 201) {
-//             alert('created employee successfully');
-//         } else {
-//             alert('Something gone wrong');
-//         }
-//     }
-
-//     // const tableRows = employees.map(r => <GetEmp key={r.id} {...r} />)
-
-//     function logout() {
-//         client.instance.logout();
-//     }
-
-//     return (<>
-//         <button onClick={logout}>Logout</button>
-//         <h1>Welcome Tech Admin: {account.username} </h1>
-//         <button onClick={getEmployees}>Get All Employees</button>
-
-//         <br></br>
-//         <input ref={manager} type="checkbox" placeholder="Manager" />
-//         <input ref={fname} type="text" placeholder="First Name" />
-//         <input ref={lname} type="text" placeholder="Last Name" />
-//         <input ref={username} type="text" placeholder="Username" />
-//         <input ref={password} type="text" placeholder="Password" />
-
-//         <button onClick={createEmployees}>Create Employees</button>
-//     </>);
-// }
-
-
-// export function GetEmp(props: { employees }) {
-//     return (<>
-
-//     </>)
-// }
-
-
 
 export default function HomePage() {
     const client = useMsal();
@@ -187,13 +109,6 @@ export function EmployeeRow(props: Employee) {
     </tr>)
 }
 
-
-// isManager: boolean,
-// fname: string,
-// lname: string,
-// username: string,
-// password: string
-
 export function CreateUser() {
     const fname = useRef(null);
     const lname = useRef(null);
@@ -206,7 +121,6 @@ export function CreateUser() {
 
 
     async function createEmployees() {
-
         const employeePayload: Employee = {
             isManager: isManager,
             fname: fname.current.value,
@@ -216,18 +130,22 @@ export function CreateUser() {
         }
         console.log(`Created Employee: ` + employeePayload);
 
-        const response = await fetch('http://20.121.74.219:3000/employees', {
-            method: 'POST',
-            body: JSON.stringify(employeePayload),
-            headers: {
-                'Content-Type': "application/json"
+        if (employeePayload.fname !== '' && employeePayload.lname !== '' && employeePayload.username !== '' && employeePayload.password !== '') {
+            const response = await fetch('http://20.121.74.219:3000/employees', {
+                method: 'POST',
+                body: JSON.stringify(employeePayload),
+                headers: {
+                    'Content-Type': "application/json"
+                }
+            });
+            const createdEmp: Employee = await response.json();
+            if (response.status === 201) {
+                alert('created employee successfully');
+            } else {
+                alert('Something gone wrong');
             }
-        });
-        const createdEmp: Employee = await response.json();
-        if (response.status === 201) {
-            alert('created employee successfully');
         } else {
-            alert('Something gone wrong');
+            alert('Please fill out all the fields');
         }
     }
 
