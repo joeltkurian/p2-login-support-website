@@ -1,6 +1,6 @@
 import { useMsal } from "@azure/msal-react";
 import { useEffect, useRef, useState } from "react";
-import { BeatLoader, RiseLoader } from "react-spinners";
+import { RiseLoader } from "react-spinners";
 import { Employee } from "../dtos";
 import './homepage.css';
 import { override } from "./login/login";
