@@ -20,10 +20,10 @@ export default function LoginPage() {
         // client.instance.loginPopup(); // Will create a popup to login
         // client.instance.loginRedirect(loginRequest);
         try {
-            const loginResponse = await client.instance.ssoSilent(silentRequest);
+            await client.instance.ssoSilent(silentRequest);
         } catch (err) {
             if (err instanceof InteractionRequiredAuthError) {
-                const loginResponse = await client.instance.loginPopup(silentRequest).catch(error => {
+                await client.instance.loginPopup(silentRequest).catch(error => {
                     alert("Incorrect username, please try again");
                     setLoading(false);
                 });

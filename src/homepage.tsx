@@ -138,7 +138,7 @@ export function CreateUser() {
                     'Content-Type': "application/json"
                 }
             });
-            const createdEmp: Employee = await response.json();
+            await response.json();
             if (response.status === 201) {
                 alert('created employee successfully');
             } else {
